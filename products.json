@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Loft Lab Strait",
+        "price": 555,
+        "img_main": "img_main/77.webp",
+        "img_1": "img_1/Loft_Lab_Strait.webp",
+        "img_2": "img_2/Loft_Lab_Union.webp",
+        "img_3": "img_3/nogi.jpg",
+        "legs_colors": ["black", "white", "steel"],
+        "materials": ["oak", "walnut", "marble"],
+        "material_colors": ["dark", "light"],
+        "description": "красивый товар",
+        "category": "tables",
+        "tags": ["loft", "wood", "black legs"],
+        "in_stock": "yes"
+    }
+]

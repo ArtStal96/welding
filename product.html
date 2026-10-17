@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="product_page">Товар — Timber Loft Design</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body class="catalog-bg">
+
+<div class="product-page">
+
+    <!-- ЛЕВАЯ КОЛОНКА -->
+    <div class="product-left">
+
+        <h1 id="productName"></h1>
+        <p id="productPrice" class="product-price"></p>
+
+        <div class="product-specs">
+            <h2 data-lang="characteristics">Характеристики</h2>
+
+            <div class="option-block">
+                <label data-lang="width">Ширина:</label>
+                <div id="widthButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="depth">Глубина:</label>
+                <div id="depthButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="height">Высота:</label>
+                <div id="heightButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="thickness">Толщина столешницы:</label>
+                <div id="thicknessButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="material">Материал столешницы:</label>
+                <div id="materialButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="top_color">Цвет столешницы:</label>
+                <div id="topColorButtons" class="button-group"></div>
+            </div>
+
+            <!-- ПРОФИЛЬ ОПОР -->
+            <div class="option-block" data-block="legProfile">
+                <label data-lang="leg_profile">Профиль опор:</label>
+                <div id="legProfileButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="leg_material">Материал ножек:</label>
+                <div id="legMaterialButtons" class="button-group"></div>
+            </div>
+
+            <div class="option-block">
+                <label data-lang="legs_color">Цвет ножек:</label>
+                <div id="legsColorButtons" class="button-group"></div>
+            </div>
+
+            <div class="material-preview">
+                <img id="materialImg" src="" alt="">
+            </div>
+
+        </div>
+
+        <button id="addBtn" class="product-add" data-lang="add_to_cart">Добавить в корзину</button>
+    </div>
+
+    <!-- ПРАВАЯ КОЛОНКА -->
+    <div class="product-right">
+
+        <img id="productImg" class="product-main-img" src="" alt="">
+
+        <div id="gallery" class="product-gallery"></div>
+
+        <div id="productDescription" class="product-description-block"></div>
+
+    </div>
+
+</div>
+
+<!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+<div id="addedPopup" class="added-popup" data-lang="added_to_cart">
+    Товар добавлен в корзину!
+</div>
+
+<script src="product-data.js"></script>
+<script src="lang.js"></script>
+<script src="product-page.js"></script>
+<script>
+    applyLang();
+</script>
+
+<!-- Плавающая корзина -->
+<a href="cart.html" class="floating-cart">
+    🛒 <span id="cartCount">0</span>
+</a>
+
+<script>
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        document.getElementById("cartCount").textContent = cart.length;
+    }
+    updateCartCount();
+</script>
+
+</body>
+</html>

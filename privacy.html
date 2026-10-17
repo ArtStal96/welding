@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — Timber Loft Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo glow-logo">TIMBER LOFT DESIGN</a>
+
+        <nav class="nav desktop-nav">
+            <a href="index.html" class="nav-link">ГЛАВНАЯ</a>
+            <a href="catalog.html" class="nav-link">КАТАЛОГ</a>
+            <a href="#" class="nav-link">О НАС</a>
+        </nav>
+
+        <div class="burger" id="burgerBtn">
+            <div></div><div></div><div></div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="catalog.html">КАТАЛОГ</a>
+        <a href="#">О НАС</a>
+
+        <div class="mobile-section">
+            <h4>Язык</h4>
+            <button data-lang="ru">RU</button>
+            <button data-lang="pl">PL</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="en">EN</button>
+        </div>
+
+        <div class="mobile-section">
+            <h4>Валюта</h4>
+            <button data-currency="PLN">PLN</button>
+            <button data-currency="EUR">EUR</button>
+            <button data-currency="USD">USD</button>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <section class="privacy-page">
+        <div class="privacy-container">
+            <h1>Политика конфиденциальности</h1>
+
+            <p>Мы уважаем вашу конфиденциальность и стремимся обеспечить защиту ваших персональных данных. На этой странице описано, какую информацию мы собираем, как используем её и какие права вы имеете.</p>
+
+            <h2>1. Какие данные мы собираем</h2>
+            <p>Мы можем собирать следующие данные:</p>
+            <ul>
+                <li>Имя и контактные данные (если вы оставляете заявку)</li>
+                <li>Технические данные: IP‑адрес, тип устройства, браузер</li>
+                <li>Файлы cookie для улучшения работы сайта</li>
+            </ul>
+
+            <h2>2. Как мы используем данные</h2>
+            <p>Ваши данные используются исключительно для:</p>
+            <ul>
+                <li>обработки запросов и заказов;</li>
+                <li>улучшения качества сайта;</li>
+                <li>аналитики и статистики;</li>
+                <li>обратной связи с вами.</li>
+            </ul>
+
+            <h2>3. Передача данных третьим лицам</h2>
+            <p>Мы не продаём и не передаём ваши данные третьим лицам, за исключением случаев, предусмотренных законом.</p>
+
+            <h2>4. Хранение данных</h2>
+            <p>Мы храним данные только столько, сколько необходимо для выполнения целей, описанных выше.</p>
+
+            <h2>5. Ваши права</h2>
+            <p>Вы имеете право:</p>
+            <ul>
+                <li>запросить копию ваших данных;</li>
+                <li>потребовать их удаление;</li>
+                <li>ограничить обработку;</li>
+                <li>отозвать согласие.</li>
+            </ul>
+
+            <h2>6. Контакты</h2>
+            <p>Если у вас есть вопросы по поводу обработки данных, свяжитесь с нами:</p>
+            <p>Email: support@timberloftdesign.com</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div>
+            <a href="privacy.html">Политика конфиденциальности</a>
+        </div>
+        <p>© 2026 Timber Loft Design. Premium Furniture Crafts.</p>
+    </footer>
+
+    <script>
+        const burger = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        burger.addEventListener('click', () => {
+            document.body.classList.toggle('menu-open');
+        });
+    </script>
+    <script src="lang.js"></script>
+
+
+</body>
+</html>

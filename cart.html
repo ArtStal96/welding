@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru" data-page="cart">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="menu_cart">Корзина — Timber Loft Design</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+
+    <style>
+        /* 🔥 Премиальная широкая форма */
+        .order-form {
+            background: rgba(0,0,0,0.4);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .order-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .order-row .field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-row label {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .order-row input,
+        .order-row select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #111;
+            color: #fff;
+        }
+
+        /* 🔥 BLIK таймер */
+        #blikAnimation {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ff4444;
+        }
+
+        /* 🔥 Адаптив */
+        @media (max-width: 768px) {
+            .order-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body class="catalog-bg">
+
+<header class="header">
+    <a href="index.html" class="logo glow-logo">TIMBER LOFT DESIGN</a>
+
+    <nav class="nav desktop-nav">
+        <a href="index.html" class="nav-link" data-lang="menu_home">ГЛАВНАЯ</a>
+        <a href="catalog.html" class="nav-link" data-lang="menu_catalog">КАТАЛОГ</a>
+        <a href="#" class="nav-link" data-lang="menu_about">О НАС</a>
+    </nav>
+
+    <div class="controls">
+
+        <!-- Языки -->
+        <div class="lang-switch">
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('pl')">PL</button>
+            <button onclick="setLang('de')">DE</button>
+            <button onclick="setLang('en')">EN</button>
+        </div>
+
+        <!-- Валюты -->
+        <div class="currency-switch">
+            <button data-currency="PLN">PLN</button>
+            <button data-currency="EUR">EUR</button>
+            <button data-currency="USD">USD</button>
+        </div>
+
+        <div class="cart-indicator">
+            🛒 <span id="cartCount">0</span>
+        </div>
+    </div>
+</header>
+
+<section class="cart-section">
+    <h1 class="cart-title" data-lang="cart_title">Корзина</h1>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+        <span data-lang="cart_total">Итого</span>: <span id="cartTotal">0</span>
+    </div>
+
+    <button id="checkoutBtn" class="checkout-btn" data-lang="cart_checkout">Оформить заказ</button>
+
+    <!-- 🔥 ФОРМА -->
+    <div id="orderForm" class="order-form" style="display:none;">
+
+        <h2>Данные для доставки</h2>
+
+        <!-- Имя + Телефон -->
+        <div class="order-row">
+            <div class="field">
+                <label>Имя</label>
+                <input id="orderName" type="text" placeholder="Ваше имя">
+            </div>
+
+            <div class="field">
+                <label>Телефон</label>
+                <input id="orderPhone" type="text" placeholder="+48 ...">
+            </div>
+        </div>
+
+        <!-- Страна + Город + Индекс -->
+        <div class="order-row">
+            <div class="field">
+                <label>Страна</label>
+                <input id="orderCountry" type="text" placeholder="Polska">
+            </div>
+
+            <div class="field">
+                <label>Город</label>
+                <input id="orderCity" type="text" placeholder="Szczecin">
+            </div>
+
+            <div class="field">
+                <label>Индекс</label>
+                <input id="orderZip" type="text" placeholder="71-791">
+            </div>
+        </div>
+
+        <!-- Адрес -->
+        <div class="order-row">
+            <div class="field">
+                <label>Адрес</label>
+                <input id="orderAddress" type="text" placeholder="Fiordów 16/2">
+            </div>
+        </div>
+
+        <!-- Дата + Доставка + Оплата -->
+        <div class="order-row">
+            <div class="field">
+                <label>Дата доставки</label>
+                <input id="orderDate" type="date">
+            </div>
+
+            <div class="field">
+                <label>Способ доставки</label>
+                <select id="orderDelivery">
+                    <option value="DHL">DHL</option>
+                    <option value="InPost">InPost</option>
+                    <option value="Курьер">Курьер</option>
+                    <option value="Самовывоз">Самовывоз</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Оплата</label>
+                <select id="orderPayment">
+                    <option value="cash">Наличные</option>
+                    <option value="card">Карта курьеру</option>
+                    <option value="BLIK">BLIK</option>
+                    <option value="online">Онлайн‑оплата (VISA / MasterCard / BLIK)</option>
+                    
+
+                </select>
+            </div>
+        </div>
+
+        <!-- Поле BLIK -->
+        <div id="blikField" style="display:none;">
+            <label>BLIK код</label>
+            <input id="blikCode" type="text" maxlength="6" placeholder="123456">
+            <div id="blikAnimation">
+                <span id="blikTimer">30</span> сек для подтверждения...
+            </div>
+        </div>
+
+        <button id="sendOrderBtn" class="checkout-final">Отправить заказ</button>
+    </div>
+    <button id="payOnlineBtn" style="display:none;" class="checkout-final">
+    Оплатить онлайн
+</button>
+
+
+</section>
+
+<footer class="main-footer">
+    <p data-lang="footer_rights">© 2026 Timber Loft Design. Premium Furniture Crafts.</p>
+</footer>
+
+<script src="lang.js"></script>
+<script src="script.js"></script>
+<script src="cart-page.js"></script>
+
+<script>
+    applyLang();
+</script>
+
+</body>
+</html>

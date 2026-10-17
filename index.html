@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru" data-page="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber Loft Design</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================
+     HEADER
+============================ -->
+<header class="header">
+    <a href="index.html" class="logo glow-logo">TIMBER LOFT DESIGN</a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="nav desktop-nav">
+        <a href="index.html" class="nav-link active" data-lang="menu_home">ГЛАВНАЯ</a>
+        <a href="catalog.html" class="nav-link" data-lang="menu_catalog">КАТАЛОГ</a>
+        <a href="#" class="nav-link" data-lang="menu_about">О НАС</a>
+        <a href="cart.html" class="nav-link" data-lang="menu_cart">КОРЗИНА</a>
+    </nav>
+
+    <!-- BURGER -->
+    <button id="burgerBtn" class="burger">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="mobile-menu">
+
+        <div class="mobile-section">
+            <a href="index.html" data-lang="menu_home">ГЛАВНАЯ</a>
+            <a href="catalog.html" data-lang="menu_catalog">КАТАЛОГ</a>
+            <a href="#" data-lang="menu_about">О НАС</a>
+            <a href="cart.html" data-lang="menu_cart">КОРЗИНА</a>
+        </div>
+
+        <div class="mobile-section">
+            <p class="mobile-title" data-lang="language">Язык</p>
+            <div class="mobile-lang">
+                <button onclick="setLang('ru')">RU</button>
+                <button onclick="setLang('pl')">PL</button>
+                <button onclick="setLang('de')">DE</button>
+                <button onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+
+        <div class="mobile-section">
+            <p class="mobile-title" data-lang="currency">Валюта</p>
+            <div class="mobile-currency">
+                <button data-currency="PLN">PLN</button>
+                <button data-currency="EUR">EUR</button>
+                <button data-currency="USD">USD</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DESKTOP CONTROLS -->
+    <div class="controls">
+        <div class="lang-switch">
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('pl')">PL</button>
+            <button onclick="setLang('de')">DE</button>
+            <button onclick="setLang('en')">EN</button>
+        </div>
+
+        <div class="currency-switch">
+            <button data-currency="PLN">PLN</button>
+            <button data-currency="EUR">EUR</button>
+            <button data-currency="USD">USD</button>
+        </div>
+
+        <div class="cart-indicator" onclick="window.location='cart.html'">
+            🛒 <span id="cartCount">0</span>
+        </div>
+    </div>
+</header>
+
+<!-- ============================
+     HERO SECTION
+============================ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title" data-lang="hero_title">ПРЕМИУМ МЕБЕЛЬ РУЧНОЙ РАБОТЫ</h1>
+        <p class="hero-subtitle">Premium Furniture Crafts</p>
+        <a href="catalog.html" class="neon-red" data-lang="go_catalog">Перейти в каталог</a>
+    </div>
+</section>
+
+<!-- ============================
+     FOOTER
+============================ -->
+<footer class="main-footer">
+    <p data-lang="footer_rights">© 2026 Timber Loft Design. Премиальная мебель ручной работы.</p>
+</footer>
+
+<!-- ============================
+     SCRIPTS
+============================ -->
+<script src="product-data.js"></script>
+<script src="cart.js"></script>
+<script src="script.js"></script>
+<script src="lang.js"></script>
+<script>
+    applyLang();
+</script>
+
+</body>
+</html>
